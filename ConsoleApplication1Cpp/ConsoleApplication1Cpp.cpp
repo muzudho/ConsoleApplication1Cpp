@@ -3,9 +3,17 @@
 
 #include <iostream>
 
+#include <spdlog/spdlog.h>
+#include <spdlog/sinks/stdout_color_sinks.h>
+#include <spdlog/sinks/basic_file_sink.h>
+#include <spdlog/fmt/std.h>             // ← C++20のstd::optionalとかも綺麗に出せる
+
 int main()
 {
     std::cout << "Hello World!\n";
+
+    // C++20 source_location でファイル・行・関数名を自動で入れる（超便利）
+    spdlog::set_pattern("[%Y-%m-%d %H:%M:%S.%e] [%^%l%$] [%s:%#] %v");
 }
 
 // プログラムの実行: Ctrl + F5 または [デバッグ] > [デバッグなしで開始] メニュー
